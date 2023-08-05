@@ -1,10 +1,12 @@
 import React from 'react'
 import './ItemsList.css'
+import ItemCard from "../ItemCard/ItemCard"
 
-function ItemsList() {
+function ItemsList({itemsData}) {
+  console.log(`<ItemsList/> Renders`)
   return (
     <div className='ItemsList'>
-    ItemsList
+    {itemsData.map((item) => <ItemCard key={item.id} item={item} />)}
     </div>
   )
 }
