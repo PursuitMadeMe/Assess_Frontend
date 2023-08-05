@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import ItemsList  from "./Components/ItemsList/ItemsList"
-
+import ItemsList from "./Components/ItemsList/ItemsList";
 
 //API call to BACKEND
 const API_URL = 'http://localhost:8888'
