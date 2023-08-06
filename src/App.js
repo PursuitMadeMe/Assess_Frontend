@@ -21,11 +21,15 @@ useEffect(() => {
     try{
       const response = await fetch(`${API_URL}/items`)
 
+      //fetch new data and converts to json() **********
       const json = await response.json()
 
       console.log(`<App/> fetch data`, json)
 
       const {data} = json
+
+      //renders new data to page ************
+      setItemsData(data)
     }catch (err){
 
     }
@@ -33,7 +37,7 @@ useEffect(() => {
   fetchData()
 }, [])
 
-console.log(`<App/> Renders with items ${itemsData}`)
+console.log(`<App/> Renders with ${itemsData.length} items`)
   return (
     <div className="App">
     <ItemsList itemsData={itemsData}/>
