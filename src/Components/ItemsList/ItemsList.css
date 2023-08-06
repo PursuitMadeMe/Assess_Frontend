@@ -1,7 +1,11 @@
 .ItemsList {
+    display: grid;
+    /*Breaks List into 3 even sections*/
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
     width: 60vw;
     height: 80vh;
+    padding-right: 45px;
     overflow-y: scroll;
-    background-color: rgb(232, 227, 227);
-    border: 5px dotted yellow;
 }
+

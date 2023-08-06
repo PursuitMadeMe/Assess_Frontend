@@ -9,8 +9,8 @@ function ItemCard({item}) {
   return (
     <div className='ItemCard'key={id}  >
     <div className='ItemCard__header' >
-    <h1>{name}</h1>
-    <h4>{shortDescription}</h4>
+    <h2>{name}</h2>
+    <p>{shortDescription}</p>
     </div>
     <div className='ItemCard__pic' >
     <img src={image} alt={name} />
@@ -18,7 +18,7 @@ function ItemCard({item}) {
     <div className='ItemCard__info'>
     <ul>
       <li>Price: ${price.toFixed(2)}</li>
-      <li>Toppings: {toppings.length > 0 ? toppings.join(', ') : 'None'}</li>
+      <li>Toppings: {toppings.length > 0 ? toppings.join(', ') : ''}</li>
     </ul>
     </div>
     </div>

@@ -41,6 +41,7 @@ useEffect(() => {
 console.log(`<App/> Renders with ${itemsData.length} items`)
   return (
     <div className="App">
+    {/* <h1>Our Menu</h1> */}
     <ItemsList itemsData={itemsData}/>
     </div>
   );
