@@ -1,0 +1,7 @@
+.ItemsList {
+    width: 60vw;
+    height: 80vh;
+    overflow-y: scroll;
+    background-color: rgb(232, 227, 227);
+    border: 5px dotted yellow;
+}
