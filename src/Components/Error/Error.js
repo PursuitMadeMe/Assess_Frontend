@@ -1,10 +1,11 @@
 import React from 'react'
 import './Error.css'
 
-function Error() {
+function Error({error}) {
+  console.log(`<Error/> Rendered! error=${error}`)
   return (
     <div className='Error'>
-    Error
+    There was an error: uh oh
     </div>
   )
 }

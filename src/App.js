@@ -1,64 +1,69 @@
 import { useEffect, useState } from "react";
 import Loading from "./Components/Loading/Loading"
+import Error from "./Components/Error/Error";
 import ItemsList from "./Components/ItemsList/ItemsList";
 
 import './App.css'
 
-//API call to BACKEND
 const API_URL = 'http://localhost:8888'
 
 function App() {
 
-//create useState for itemsList data
 const [itemsData, setItemsData] = useState([])
 
-//create useState for LOADING data 
 const [loading, setLoading] = useState(true)
 
-//create a useEffect to load itemsList data 
+const [error, setError] = useState('')
+
 useEffect(() => {
 
   console.log(`<App/> useEffect FIRED`)
 
-  //async request to fetch data
   async function fetchData() {
 
-    //Show the user we are LOADING data
     setLoading(true)
 
     try{
       const response = await fetch(`${API_URL}/items`)
 
-      //fetch new data and converts to json() ********** BUG#1
       const json = await response.json()
 
       console.log(`<App/> fetch data`, json)
 
       const {data} = json
 
-      //renders new data to page ************ BUG#2
+      //ERROR - remove
+      data.split(', ')
+
       setItemsData(data)
 
-      //Stop LOADING data
       setLoading(false)
 
     }catch (err){
-
+      console.log(`<App/> useEffect error: ${err.message}`)
+      setLoading(false)
+      setError(err.message)
     }
   }
   fetchData()
 }, [])
 
-console.log(`<App/> Renders loading = ${loading} with ${itemsData.length} items`)
+const renderContent = () => {
+  if(loading){
+    return <Loading />
+  }else if (error){
+    return <Error error={error} />
+  }else{
+    return <ItemsList itemsData={itemsData}/>
+  }
+}
+
+console.log(`<App/> Renders error = ${error} loading = ${loading} with ${itemsData.length} items`)
   return (
     <div className="App">
     {/* <h1>Our Menu</h1> */}
 
-    {/* {loading ? <Loading /> : <ItemsList itemsData={itemsData}/>} */}
-
-
-    <Loading />
-    
+    {renderContent()}
     </div>
   );
 }
