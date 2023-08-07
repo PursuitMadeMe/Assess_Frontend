@@ -1,69 +1,72 @@
 import { useEffect, useState } from "react";
-import Loading from "./Components/Loading/Loading"
+import Loading from "./Components/Loading/Loading";
 import Error from "./Components/Error/Error";
 import ItemsList from "./Components/ItemsList/ItemsList";
 
-import './App.css'
+import "./App.css";
 
-const API_URL = 'http://localhost:8888'
+const API_URL = "http://localhost:8888";
 
 function App() {
+  const [itemsData, setItemsData] = useState([]);
 
-const [itemsData, setItemsData] = useState([])
+  const [loading, setLoading] = useState(true);
 
-const [loading, setLoading] = useState(true)
+  const [error, setError] = useState("");
 
-const [error, setError] = useState('')
+  useEffect(() => {
+    console.log(`<App/> useEffect FIRED`);
 
-useEffect(() => {
+    async function fetchData() {
+      setLoading(true);
 
-  console.log(`<App/> useEffect FIRED`)
+      try {
+        const response = await fetch(`${API_URL}/items`);
 
-  async function fetchData() {
+        const json = await response.json();
 
-    setLoading(true)
+        console.log(`<App/> fetch data`, json);
 
-    try{
-      const response = await fetch(`${API_URL}/items`)
+        const { data, error } = json;
 
-      const json = await response.json()
+        if (response.ok) {
+          setItemsData(data);
 
-      console.log(`<App/> fetch data`, json)
+          setLoading(false);
+        } else {
+          setLoading(false);
+          setError(error);
+        }
 
-      const {data} = json
-
-      //ERROR - remove
-      data.split(', ')
-
-      setItemsData(data)
-
-      setLoading(false)
-
-    }catch (err){
-      console.log(`<App/> useEffect error: ${err.message}`)
-      setLoading(false)
-      setError(err.message)
+        //ERROR - remove
+        // data.split(', ')
+      } catch (err) {
+        console.log(`<App/> useEffect error: ${err.message}`);
+        setLoading(false);
+        setError(err.message);
+      }
     }
-  }
-  fetchData()
-}, [])
+    fetchData();
+  }, []);
 
-const renderContent = () => {
-  if(loading){
-    return <Loading />
-  }else if (error){
-    return <Error error={error} />
-  }else{
-    return <ItemsList itemsData={itemsData}/>
-  }
-}
+  const renderContent = () => {
+    if (loading) {
+      return <Loading />;
+    } else if (error) {
+      return <Error error={error} />;
+    } else {
+      return <ItemsList itemsData={itemsData} />;
+    }
+  };
 
-console.log(`<App/> Renders error = ${error} loading = ${loading} with ${itemsData.length} items`)
+  console.log(
+    `<App/> Renders error = ${error} loading = ${loading} with ${itemsData.length} items`
+  );
   return (
     <div className="App">
-    {/* <h1>Our Menu</h1> */}
+      {/* <h1>Our Menu</h1> */}
 
-    {renderContent()}
+      {renderContent()}
     </div>
   );
 }
