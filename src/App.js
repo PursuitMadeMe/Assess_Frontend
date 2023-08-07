@@ -12,12 +12,13 @@ function App() {
 
   const [loading, setLoading] = useState(true);
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   useEffect(() => {
     console.log(`<App/> useEffect FIRED`);
 
     async function fetchData() {
+      setError('')
       setLoading(true);
 
       try {
@@ -64,7 +65,8 @@ function App() {
   );
   return (
     <div className="App">
-      {/* <h1>Our Menu</h1> */}
+    <div className="App__header"></div>
+      <h1>Our Menu</h1>
 
       {renderContent()}
     </div>

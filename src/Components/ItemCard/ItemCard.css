@@ -3,6 +3,7 @@
   border: 1px solid black;
   background-color: rgb(243, 241, 241);
   padding-left: 15px;
+  box-shadow: 5px 5px rgb(185, 167, 167);
 }
 
 .ItemCard__pic img {
@@ -10,16 +11,13 @@
 }
 
 .ItemCard__info {
-  /*Adds space to the bottom of the section */
 
   margin: 10px;
 }
 .ItemCard__info ul {
-  /*Aligns ul elements with the rest of the page*/
 
   padding-inline-start: 0;
 }
 .ItemCard__info li {
-  /*Removes the Bullets from the li elements*/
   list-style-type: none;
 }
