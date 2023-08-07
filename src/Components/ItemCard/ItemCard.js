@@ -7,7 +7,7 @@ function ItemCard({item}) {
   console.log(`<ItemCard/> Render with ${name}`)
 
   return (
-    <div className='ItemCard'key={id}  >
+    <div className='ItemCard' key={id}  >
     <div className='ItemCard__header' >
     <h2>{name}</h2>
     <p>{shortDescription}</p>
