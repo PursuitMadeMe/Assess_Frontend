@@ -4,7 +4,6 @@ import "./ItemCard.css";
 function ItemCard({ item }) {
   const { id, name, shortDescription, image, price, toppings } = item;
 
-  console.log(`<ItemCard/> Render with ${name}`);
 
   return (
     <div className="ItemCard" key={id}>

@@ -4,6 +4,7 @@ import Error from "./Components/Error/Error";
 import ItemsList from "./Components/ItemsList/ItemsList";
 
 import "./App.css";
+import Containter from "./Components/Container/Containter";
 
 const API_URL = "http://localhost:8888";
 
@@ -15,7 +16,6 @@ function App() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    console.log(`<App/> useEffect FIRED`);
 
     async function fetchData() {
       setError('')
@@ -26,7 +26,7 @@ function App() {
 
         const json = await response.json();
 
-        console.log(`<App/> fetch data`, json);
+        // console.log(`<App/> fetch data`, json);
 
         const { data, error } = json;
 
@@ -39,10 +39,8 @@ function App() {
           setError(error);
         }
 
-        //ERROR - remove
-        // data.split(', ')
+        
       } catch (err) {
-        console.log(`<App/> useEffect error: ${err.message}`);
         setLoading(false);
         setError(err.message);
       }
@@ -60,15 +58,12 @@ function App() {
     }
   };
 
-  console.log(
-    `<App/> Renders error = ${error} loading = ${loading} with ${itemsData.length} items`
-  );
+  
   return (
     <div className="App">
-    <div className="App__header"></div>
-      <h1>Our Menu</h1>
-
-      {renderContent()}
+    <Containter center={Boolean(error || loading)}/>
+    <h1>Our Menu</h1>
+      {renderContent()} 
     </div>
   );
 }

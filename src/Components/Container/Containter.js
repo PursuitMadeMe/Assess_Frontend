@@ -1,11 +1,14 @@
 import React from 'react'
 import './Container.css'
 
-function Containter() {
+function Containter({center,children}) {
+  let classNames = ['Container']
+
+  if(center) {
+    classNames.push('Containter--center')
+  }
   return (
-    <div className='Container'> 
-    Containter
-    </div>
+    <div className={classNames.join('')}>{children}</div>
   )
 }
 
