@@ -13,20 +13,17 @@ function App() {
 
   const [loading, setLoading] = useState(true);
 
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   useEffect(() => {
-
     async function fetchData() {
-      setError('')
+      setError("");
       setLoading(true);
 
       try {
         const response = await fetch(`${API_URL}/items`);
 
         const json = await response.json();
-
-        // console.log(`<App/> fetch data`, json);
 
         const { data, error } = json;
 
@@ -38,8 +35,6 @@ function App() {
           setLoading(false);
           setError(error);
         }
-
-        
       } catch (err) {
         setLoading(false);
         setError(err.message);
@@ -58,12 +53,11 @@ function App() {
     }
   };
 
-  
   return (
     <div className="App">
-    <Containter center={Boolean(error || loading)}/>
-    <h1>Our Menu</h1>
-      {renderContent()} 
+      <Containter center={Boolean(error || loading)} />
+      <h1>Our Menu</h1>
+      {renderContent()}
     </div>
   );
 }

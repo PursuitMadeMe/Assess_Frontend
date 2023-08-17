@@ -1,12 +1,12 @@
 .App {
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: white;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: white;
 }
 
 .App h1 {
-    text-align: center;
-    padding-right: 200px;;
+  text-align: center;
+  padding-right: 200 px;
 }

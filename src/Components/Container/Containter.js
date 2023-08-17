@@ -1,15 +1,13 @@
-import React from 'react'
-import './Container.css'
+import React from "react";
+import "./Container.css";
 
-function Containter({center,children}) {
-  let classNames = ['Container']
+function Containter({ center, children }) {
+  let classNames = ["Container"];
 
-  if(center) {
-    classNames.push('Containter--center')
+  if (center) {
+    classNames.push("Containter--center");
   }
-  return (
-    <div className={classNames.join('')}>{children}</div>
-  )
+  return <div className={classNames.join("")}>{children}</div>;
 }
 
-export default Containter
+export default Containter;

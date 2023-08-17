@@ -1,12 +1,11 @@
 .Container {
-    width: 60vw;
-    height: 80vh;
-    overflow-y: scroll;
+  width: 60vw;
+  height: 80vh;
+  overflow-y: scroll;
 }
 
 .Container--center {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    
+  display: grid;
+  align-items: center;
+  justify-content: center;
 }

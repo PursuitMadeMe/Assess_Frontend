@@ -4,7 +4,6 @@ import "./ItemCard.css";
 function ItemCard({ item }) {
   const { id, name, shortDescription, image, price, toppings } = item;
 
-
   return (
     <div className="ItemCard" key={id}>
       <div className="ItemCard__header">
@@ -17,7 +16,9 @@ function ItemCard({ item }) {
       <div className="ItemCard__info">
         <ul>
           <li>Price: ${price.toFixed(2)}</li>
-          <li>Toppings: {toppings.length > 0 ? toppings.join(", ") :'None'}</li>
+          <li>
+            Toppings: {toppings.length > 0 ? toppings.join(", ") : "None"}
+          </li>
         </ul>
       </div>
     </div>
