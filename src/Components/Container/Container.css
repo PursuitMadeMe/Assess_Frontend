@@ -1,6 +1,8 @@
 .Container {
   width: 60vw;
   height: 80vh;
+  background-color: #fff;
+  border-radius: 5px;
   overflow-y: scroll;
 }
 
@@ -8,4 +10,5 @@
   display: grid;
   align-items: center;
   justify-content: center;
+  background-color: #eee;
 }
