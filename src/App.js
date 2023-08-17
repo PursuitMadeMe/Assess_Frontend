@@ -56,8 +56,8 @@ function App() {
   return (
     <div className="App">
       <Containter center={Boolean(error || loading)}>
-      <h1 className="App__header">Our Menu</h1>
-      {renderContent()}
+        <h1 className="App__header">Our Menu</h1>
+        {renderContent()}
       </Containter>
     </div>
   );

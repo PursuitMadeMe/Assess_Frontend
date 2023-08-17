@@ -1,11 +1,10 @@
 .ItemsList {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 15px;
-    width: 40vw;
-    height: 80vh;
-    padding-right: 45px;
-    background-color: white;
-    overflow-y: scroll;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px;
+  width: 40vw;
+  height: 80vh;
+  padding-right: 45px;
+  background-color: white;
+  overflow-y: scroll;
 }
-

@@ -6,10 +6,10 @@ import GridLayout from "../GridLayout/GridLayout";
 function ItemsList({ itemsData }) {
   return (
     <div className="ItemsList">
-    <GridLayout>
-      {itemsData.map((item) => (
-        <ItemCard key={item.id} item={item} />
-      ))}
+      <GridLayout>
+        {itemsData.map((item) => (
+          <ItemCard key={item.id} item={item} />
+        ))}
       </GridLayout>
     </div>
   );
